@@ -1,0 +1,7 @@
+---
+
+- name: Sync Folder to s3 bucket ...
+  command: s3cmd sync --skip-existing {{ localFilePath }} s3://{{ s3bucketPath }}/{{ folderNameInS3 }}
+
+- name: Creating backup versions of the folder ...
+  command: s3cmd cp --recursive s3://{{ s3bucketPath }}/{{ folderNameInS3 }} s3://{{ s3bucketPath }}/{{ folderNameInS3 }}-{{ ansible_date_time.date }}-{{ ansible_date_time.time }}

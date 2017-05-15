@@ -1,0 +1,4 @@
+---
+- hosts: backuptoS3host 
+  roles:
+    - { role: "opstree.s3cmd" }

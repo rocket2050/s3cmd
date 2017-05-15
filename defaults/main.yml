@@ -1,0 +1,7 @@
+---
+# defaults file for opstree.s3cmd
+aws_key: "AWS_KEY"
+aws_secret: "AWS_SECRET_KEY"
+s3bucketPath: "bucketName/foldername"
+folderNameInS3: "nameOfFolderToSetInS3"
+localFilePath: "pathOfFileToBePutInS3"

@@ -1,0 +1,7 @@
+---
+# tasks file for opstree.s3cmd
+- name: For installing s3cmd
+  include: install_s3smd.yml
+
+- name: For managing files/folder in s3 bucket
+  include: managefilesS3.yml 

@@ -1,0 +1,26 @@
+---
+# tasks file for opstree.awscli
+
+- stat: path=/root/.s3cfg
+  register: fileStatus
+
+- name: Installing pip ...
+  apt: pkg=python-pip state=installed
+  when: ansible_os_family == "Debian"
+
+- name: Installing pip ...
+  yum: name=python-pip state=installed
+  when: ansible_os_family == "RedHat"
+
+- name: Installing s3cmd cli ...
+  pip: name=s3cmd state=present
+  when: fileStatus.stat.exists == False
+
+- name: Creating s3cmd file
+  sudo: yes
+  template: src=s3confg dest=/root/s3confg mode=0600
+  when: fileStatus.stat.exists == False
+
+- name: Generating s3cmd config ...
+  command: mv /root/s3confg /root/.s3cfg
+  when: fileStatus.stat.exists == False

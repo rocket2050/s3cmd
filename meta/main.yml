@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Sandeep
+  description: Ansible role to install s3cmd and manages folder sync and versioning in aws s3 bucket
+  company: Opstree
+  license: MIT
+  min_ansible_version: 1.9
+  categories:
+  - backup
+  platforms:
+  - name: Ubuntu
+    versions:
+    - precise
+    - trusty
+    - vivid
+  - name: EL
+    versions: 
+    - 6
+    - 7
+dependencies:
+    - { role: opstree.awscli} 
